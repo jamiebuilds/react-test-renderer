@@ -84,3 +84,21 @@ tree.find(element => element.type === 'button')
 
 assert.ok(stub.called);
 ```
+
+## Usage with jsdom
+
+Using [jsdom](https://github.com/tmpvar/jsdom) you can run this test renderer
+entirely in Node. Just set this up before you run your tests:
+
+```sh
+$ npm install --save-dev jsdom
+```
+
+```js
+var jsdom = require('jsdom').jsdom;
+
+global.window = jsdom(undefined, { url: 'about:blank' }).defaultView;
+global.document = global.window.document;
+```
+
+> Note: This was tested using jsdom@9
