@@ -4,6 +4,10 @@ var internalInstanceKey;
 var INTERNAL_INSTANCE_KEY = /^__reactInternalInstance/;
 
 function getInternalInstance(element) {
+  if (element._reactInternalComponent) {
+    return element._reactInternalComponent;
+  }
+
   if (!internalInstanceKey) {
     internalInstanceKey = Object.keys(element).find(function(key) {
       return INTERNAL_INSTANCE_KEY.test(key);
@@ -71,7 +75,8 @@ function createRenderedElement(element) {
 }
 
 function createRenderedComponent(component) {
-  var rootElement = component._reactInternalInstance._renderedComponent._nativeNode;
+  var renderedComponent = component._reactInternalInstance._renderedComponent;
+  var rootElement = renderedComponent._nativeNode || renderedComponent._nodeWithLegacyProperties;
   var root = createRenderedElement(rootElement);
   var refs = {};
 
