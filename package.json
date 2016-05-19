@@ -1,6 +1,6 @@
 {
   "name": "react-test-renderer",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "A lightweight solution to testing fully-rendered React Components",
   "main": "index.js",
   "scripts": {
