@@ -1,3 +1,7 @@
+[**Deprecated** - You're probably looking for the package of the same name in the React repo!](https://github.com/facebook/react/tree/master/packages/react-test-renderer)
+
+---
+
 # react-test-renderer
 
 > A lightweight solution to testing fully-rendered React Components
